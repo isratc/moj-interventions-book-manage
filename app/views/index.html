@@ -1,8 +1,19 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  MoJ Interventions - make referrals
+{% endblock %}
+
+{% block beforeContent %}
+
+  {% from 'govuk/components/phase-banner/macro.njk' import govukPhaseBanner %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+  }) }}
+
 {% endblock %}
 
 {% block content %}
@@ -10,27 +21,44 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Sign in to book and manage interventions
+         Book and Manage Interventions 
       </h1>
-      <div class="govuk-grid-column-full">
-        <ul class="govuk-list">
-          <li>View Administrator's dashboard</li>
-          <a href="signin" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
-              Administrator's dashboard
-              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
-              </svg>
-            </a>
-          <li>View Caseworker dashboard</li>
-          <a href="signin-li" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
-              Caseworker dashboard
-              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
-              </svg>
-            </a>
-        </ul>
-      </div>
-    </div>
-</div>
+      <h2 class="govuk-heading-xl">
+        Sign in to make referrals
+      </h2>
 
+      <form action="referral-start" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          id: "email",
+          name: "email",
+          type: "email",
+          autocomplete: "email",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Password"
+          },
+          id: "password",
+          name: "password",
+          type: "password",
+          autocomplete: "password",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Sign in"
+        }) }}
+      </form>
+    </div>
+  </div>
 {% endblock %}
