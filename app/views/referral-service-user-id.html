@@ -24,39 +24,26 @@
          Book and Manage Interventions 
       </h1>
       <h2 class="govuk-heading-m">
-        Sign in to make referrals
+        Enter service user's identification
       </h2>
 
-      <form action="referral-start" method="post" class="form">
+      <form action="pp-form-v01/making-referral-service-user-details" method="post" class="form">
 
         {{ govukInput({
           label: {
-            text: "Email address"
+            text: "User id"
           },
-          id: "email",
-          name: "email",
-          type: "email",
-          autocomplete: "email",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Password"
-          },
-          id: "password",
-          name: "password",
-          type: "password",
-          autocomplete: "password",
+          id: "identification",
+          name: "User ID",
+          type: "number",
+          autocomplete: "User ID",
           attributes: {
             spellcheck: "false"
           }
         }) }}
 
         {{ govukButton({
-          text: "Sign in"
+          text: "Save and continue"
         }) }}
       </form>
     </div>
