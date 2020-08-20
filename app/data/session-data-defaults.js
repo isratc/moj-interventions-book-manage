@@ -12,13 +12,15 @@ Example usage:
 "full-name": "Sarah Philips",
 
 "options-chosen": [ "foo", "bar" ]
+ {id: "EN000001", name: "Bob", phone: "02011122333"}
 
 ============================================================================
 
 */
 
 module.exports = {
-
-  // Insert values here
-
+  users: [
+    {id: "GB123456"},
+    {id: "EN000001"}
+  ]
 }

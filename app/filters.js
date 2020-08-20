@@ -37,7 +37,11 @@ module.exports = function (env) {
     documentation.
 
   ------------------------------------------------------------------ */
-
+  filters.findMatching = function(list, property, value) {
+    return list.find(function(item) {
+      return item[property] === value
+    })
+  }
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

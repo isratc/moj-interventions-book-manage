@@ -31,12 +31,13 @@
 
         {{ govukInput({
           label: {
-            text: "User id"
+            text: "CRN number"
           },
-          id: "identification",
-          name: "User ID",
-          type: "number",
-          autocomplete: "User ID",
+          id: "service-user-id",
+          name: "service-user-id",
+          type: "text",
+          autocomplete: "CRN number",
+          attributes: "{{data['service-user-id']}}",
           attributes: {
             spellcheck: "false"
           }
